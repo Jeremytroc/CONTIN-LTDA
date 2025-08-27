@@ -1,0 +1,114 @@
+
+body {
+  color: #e0e0e0;               /* gris claro para textos */
+  background-color: #0b0b0f;    /* negro azulado */
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Contenido principal */
+.presentacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3%;
+}
+
+.presentacion h1 {
+  text-align: center;
+  font-size: 50px;
+  font-family: "Krona One", sans-serif;
+  margin: 0%;
+  /* degradado en texto */
+  background: linear-gradient(90deg, rgb(121, 186, 187), rgb(3, 45, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* clave para que el gradiente se note en todo el texto */
+  background-size: 20% 90%;
+}
+
+.presentacion_contenido {
+  position: relative;
+  width: 40%;
+  margin: 12% 0 0 2%;
+  padding: 50px 50px;
+  font-size: 32px;
+  text-align: justify;
+  font-family: "Krona One", sans-serif;
+  color: #e0e0e0;
+  background: rgba(11, 11, 15, 0.85);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.presentacion_contenido::before {
+  content: "";
+  position: absolute;
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(29, 40, 187, 0.35), transparent 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: var(--glow-opacity, 0);
+  transition: top 0.05s linear, left 0.05s linear, opacity 1s ease; /* movimiento suave */
+}
+
+/* Tipografía */
+.titulo {
+  color: #9bd1ff; /* azul suave */
+  font-weight: bold;
+}
+
+.rrss {
+  display: inline-block;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 4px solid #e0e0e0;
+  border-radius: 10px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.instagram:hover {
+  background-color: rgb(148, 146, 146);
+  color: #0b0b0f;
+}
+
+#videoDisplay2 {
+  width: 800px;       /* ancho del círculo */
+  height: 800px;      /* alto igual al ancho para que sea círculo */
+  animation: aparecer 2s ease-in-out forwards;
+  border-radius: 50%; /* hace que sea circular */
+  object-fit: cover; /* ajusta el video sin deformarlo */
+  margin-left: 45%;
+  margin-top: -550px;
+    box-shadow: 
+    0 0 25px rgba(35, 128, 210, 0.25),   /* brillo alrededor */
+    0 0 50px rgba(8, 38, 239, 0.4),     /* halo externo */
+    0 0 100px rgba(172, 180, 184, 0.6); /* 👈 halo difuminado */
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
